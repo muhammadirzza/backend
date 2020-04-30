@@ -90,7 +90,7 @@ module.exports={
                         }
                         console.log('upload edit foto success')
                         const { image } = req.files
-                        const imagePath = image ? path + '/' + image[0].fields : null
+                        const imagePath = image ? path + '/' + image[0].filename : null
                         const data = JSON.parse(req.body.data)
                         if(imagePath) {
                             data.imagePath=imagePath
