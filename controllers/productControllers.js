@@ -95,7 +95,7 @@ module.exports={
                         if(imagePath) {
                             data.imagePath=imagePath
                         }
-                        sql = `Update photos set ? where id = ${id}`
+                        sql = `Update products set ? where product_id = ${id}`
                         db.query(sql,data,(err1,result1)=>{
                             if(err1) {
                                 if(imagePath) {
@@ -108,7 +108,7 @@ module.exports={
                                     fs.unlinkSync('./public' + result[0].imagePath)
                                 }
                             }
-                            sql=`select * from photos`
+                            sql=`select * from products`
                             db.query(sql, (err1, result3)=>{
                                 if(err1) return res.status(500).send(err1)
                                 return res.status(200).send(result3)
